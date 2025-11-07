@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -162,6 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
   <li><a href="#functions-used" id="toc-functions-used" class="nav-link" data-scroll-target="#functions-used"><strong>Functions used</strong></a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -350,12 +371,26 @@ Note
 <p><strong>dplyr</strong>: filter(), mutate(), select(), arrange(), group_by(), summarise(), n_distinct()</p>
 <p><strong>tidyr</strong>: pivot_wider() <em>(optional demo)</em></p>
 <p><strong>ggplot2</strong>: geom_point(), geom_smooth(), geom_line(), facet_wrap()</p>
+</section>
+</section>
+<section id="references" class="level1">
+
+
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gapminderpkg" class="csl-entry" role="listitem">
+Bryan, Jennifer, and Hadley Wickham. 2019. <span>“Gapminder: Data from Gapminder.”</span> <a href="https://cran.r-project.org/package=gapminder">https://cran.r-project.org/package=gapminder</a>.
+</div>
+<div id="ref-wickham2014tidydata" class="csl-entry" role="listitem">
+Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>Journal of Statistical Software</em> 59 (10): 1–23. <a href="https://www.jstatsoft.org/article/view/v059i10">https://www.jstatsoft.org/article/view/v059i10</a>.
+</div>
+<div id="ref-wickham2016ggplot2" class="csl-entry" role="listitem">
+———. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. New York: Springer. <a href="https://ggplot2-book.org">https://ggplot2-book.org</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

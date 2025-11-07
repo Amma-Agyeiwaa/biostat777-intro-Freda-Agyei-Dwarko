@@ -2,6 +2,8 @@
 title: "Example analysis: Life expectancy and income (Gapminder)"
 bibliography: references.bib
 page-layout: article
+nocite: |
+  @*
 ---
 
 ```{r}
@@ -150,3 +152,5 @@ Across regions from 1962 onward, life expectancy tends to rise with income, and 
 **tidyr**: pivot_wider() *(optional demo)*
 
 **ggplot2**: geom_point(), geom_smooth(), geom_line(), facet_wrap()
+
+# References
