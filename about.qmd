@@ -1,0 +1,33 @@
+---
+title: "About"
+---
+
+## Bio
+
+Freda Agyei-Dwarko is a medical doctor from Ghana and is currently pursuing a Master of Public Health degree at Johns Hopkins University, specializing in Epidemiology, Biostatistics, and Digital Health. As part of this training, she seeks to develop programming and data analysis skills by taking courses in statistical computing to better position herself for clinical research. With two years of clinical experience, she brings a strong foundation in patient care to her academic and research endeavors. Her primary interest lies in Interventional Radiology, where she seeks to integrate clinical expertise with data-driven insights to advance minimally invasive treatments and improve patient outcomes. Her current research focuses on this area, reflecting her aspiration to become an Interventional Radiologist and contribute to innovations in global health.
+
+## Fun facts
+
+-   🍲 Loves cooking traditional Ghanaian dishes and experimenting with foods from different cultures.\
+-   ✈️ An avid traveler who enjoys discovering new cities.\
+-   📖 Finds relaxation in journaling after a long day of work.\
+-   😴 Favorite pastime is simply catching up on sleep.\
+-   🏺 Inspired by the Japanese art of Kintsugi—finding beauty in imperfection.
+
+## Inspiration
+
+This is a YouTube link to a favorite song by Hillsong United, which inspires perseverance through every phase of life: [HILLSONG](.)
+
+## Education
+
+-   **Johns Hopkins University Bloomberg School of Public Health**, Baltimore, MD — Master of Public Health \| June 2025 – Present\
+-   **University of Cape Coast School of Medical Sciences**, Cape Coast, Ghana — MBChB \| Aug 2016 – Oct 2022
+
+## Experience
+
+-   **Pentecost Hospital Madina** — Medical Doctor \| May 2024 – June 2025\
+-   **37 Military Hospital** — Medical Doctor \| Apr 2023 – Apr 2024
+
+::: callout-tip
+This site is built with [Quarto](https://quarto.org) and published via GitHub Pages.
+:::

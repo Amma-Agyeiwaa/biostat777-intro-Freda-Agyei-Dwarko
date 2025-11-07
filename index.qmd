@@ -1,0 +1,23 @@
+---
+title: "Welcome"
+author: "Freda Agyei-Dwarko"
+date: last-modified
+image: Freda.jpg
+page-layout: article
+---
+
+# Hi, I’m Ewuramma 👋
+
+I’m a medical doctor from Ghana and an MPH student at Johns Hopkins specializing in Epidemiology, Biostatistics, and Digital Health. I’m developing programming and data analysis skills to strengthen my clinical research toolkit and impact in global health.
+
+![](images/Freda.jpg)
+
+
+## What you’ll find here
+- **About:** background and interests  
+- **Example analysis:** a reproducible mini-analysis in R
+
+::: callout-tip
+**Fun fact:** When I’m not analyzing data, I’m probably outdoors, journaling, or hunting for great coffee.
+:::
+

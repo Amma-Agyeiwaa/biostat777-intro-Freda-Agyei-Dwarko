@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Freda Agyei-Dwarko is a medical doctor from Ghana and is currently pursuing a Master of Public Health degree at Johns Hopkins University, specializing in Epidemiology, Biostatistics, and Digital Health. As part of this training, she seeks to develop programming and data analysis skills by taking courses in statistical computing to better position herself for clinical research. With two years of clinical experience, she brings a strong foundation in patient care to her academic and research endeavors. Her primary interest lies in Interventional Radiology, where she seeks to integrate clinical expertise with data-driven insights to advance minimally invasive treatments and improve patient outcomes. Her current research focuses on this area, reflecting her aspiration to become an Interventional Radiologist and contribute to innovations in global health."
+  },
+  {
+    "objectID": "about.html#bio",
+    "href": "about.html#bio",
+    "title": "About",
+    "section": "",
+    "text": "Freda Agyei-Dwarko is a medical doctor from Ghana and is currently pursuing a Master of Public Health degree at Johns Hopkins University, specializing in Epidemiology, Biostatistics, and Digital Health. As part of this training, she seeks to develop programming and data analysis skills by taking courses in statistical computing to better position herself for clinical research. With two years of clinical experience, she brings a strong foundation in patient care to her academic and research endeavors. Her primary interest lies in Interventional Radiology, where she seeks to integrate clinical expertise with data-driven insights to advance minimally invasive treatments and improve patient outcomes. Her current research focuses on this area, reflecting her aspiration to become an Interventional Radiologist and contribute to innovations in global health."
+  },
+  {
+    "objectID": "about.html#fun-facts",
+    "href": "about.html#fun-facts",
+    "title": "About",
+    "section": "Fun facts",
+    "text": "Fun facts\n\n🍲 Loves cooking traditional Ghanaian dishes and experimenting with foods from different cultures.\n\n✈️ An avid traveler who enjoys discovering new cities.\n\n📖 Finds relaxation in journaling after a long day of work.\n\n😴 Favorite pastime is simply catching up on sleep.\n\n🏺 Inspired by the Japanese art of Kintsugi—finding beauty in imperfection."
+  },
+  {
+    "objectID": "about.html#inspiration",
+    "href": "about.html#inspiration",
+    "title": "About",
+    "section": "Inspiration",
+    "text": "Inspiration\nThis is a YouTube link to a favorite song by Hillsong United, which inspires perseverance through every phase of life: HILLSONG"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\nJohns Hopkins University Bloomberg School of Public Health, Baltimore, MD — Master of Public Health | June 2025 – Present\n\nUniversity of Cape Coast School of Medical Sciences, Cape Coast, Ghana — MBChB | Aug 2016 – Oct 2022"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\n\nPentecost Hospital Madina — Medical Doctor | May 2024 – June 2025\n\n37 Military Hospital — Medical Doctor | Apr 2023 – Apr 2024\n\n\n\n\n\n\n\nTip\n\n\n\nThis site is built with Quarto and published via GitHub Pages."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "I’m a medical doctor from Ghana and an MPH student at Johns Hopkins specializing in Epidemiology, Biostatistics, and Digital Health. I’m developing programming and data analysis skills to strengthen my clinical research toolkit and impact in global health.\n\n\n\n\nAbout: background and interests\n\nExample analysis: a reproducible mini-analysis in R\n\n\n\n\n\n\n\nTip\n\n\n\nFun fact: When I’m not analyzing data, I’m probably outdoors, journaling, or hunting for great coffee."
+  },
+  {
+    "objectID": "index.html#what-youll-find-here",
+    "href": "index.html#what-youll-find-here",
+    "title": "Welcome",
+    "section": "",
+    "text": "About: background and interests\n\nExample analysis: a reproducible mini-analysis in R\n\n\n\n\n\n\n\nTip\n\n\n\nFun fact: When I’m not analyzing data, I’m probably outdoors, journaling, or hunting for great coffee."
+  },
+  {
+    "objectID": "example-analysis.html",
+    "href": "example-analysis.html",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "",
+    "text": "Question. How has life expectancy changed over time across regions, and how is it associated with income (GDP per capita)?\nAudience. Peers learning tidy data workflows and clear visualization for public health context."
+  },
+  {
+    "objectID": "example-analysis.html#data-source-and-data-dictionary",
+    "href": "example-analysis.html#data-source-and-data-dictionary",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "Data source and data dictionary",
+    "text": "Data source and data dictionary\n\nData: gapminder R package (compiled from Gapminder Foundation public data) [@gapminderpkg]\nGapminder site (concepts & charts): https://www.gapminder.org/\nggplot2 and tidy data references: [@wickham2016ggplot2; @wickham2014tidydata]\n\n\nReproducibility. All figures are generated from the package dataset at render time. Code is fully included."
+  },
+  {
+    "objectID": "example-analysis.html#plot-1-gdp-per-capita-vs-life-expectancy-scatter-smoother",
+    "href": "example-analysis.html#plot-1-gdp-per-capita-vs-life-expectancy-scatter-smoother",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "Plot 1 — GDP per capita vs life expectancy (scatter + smoother)",
+    "text": "Plot 1 — GDP per capita vs life expectancy (scatter + smoother)\n\nggplot(gm, aes(x = gdp_percap, y = life_exp, color = continent)) +\n  geom_point(alpha = 0.6) +\n  geom_smooth(se = TRUE) +\n  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si(\" \"))) +\n  labs(\n    title = \"Richer countries tend to live longer\",\n    subtitle = paste0(\"Gapminder \", min(gm$year), \"–\", max(gm$year), \"; x-axis on log10 scale\"),\n    x = \"GDP per capita (log10 scale; SI labels)\",\n    y = \"Life expectancy (years)\"\n  ) +\n  theme_minimal(base_size = 12)"
+  },
+  {
+    "objectID": "example-analysis.html#plot-2-life-expectancy-over-time-for-ghana-vs-world-median",
+    "href": "example-analysis.html#plot-2-life-expectancy-over-time-for-ghana-vs-world-median",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "Plot 2 — Life expectancy over time for Ghana vs World median",
+    "text": "Plot 2 — Life expectancy over time for Ghana vs World median\n\n# compute world median by year\nworld_median &lt;- gm |&gt;\n  dplyr::group_by(year) |&gt;\n  dplyr::summarise(world_median_lifeexp = median(life_exp), .groups = \"drop\")\n\nghana &lt;- gm |&gt; dplyr::filter(country == \"Ghana\")\n\nggplot() +\n  geom_line(data = world_median, aes(year, world_median_lifeexp), linewidth = 1) +  # geom_line()\n  geom_line(data = ghana, aes(year, life_exp), linewidth = 1) +\n  labs(\n    title = \"Life expectancy over time: Ghana vs. world median\",\n    subtitle = \"Ghana has improved over decades, with fluctuations relative to the world median\",\n    x = \"Year\",\n    y = \"Life expectancy (years)\",\n    caption = \"Lines show Ghana and the world median.\"\n  ) +\n  theme_minimal(base_size = 12)"
+  },
+  {
+    "objectID": "example-analysis.html#plot-3-faceted-scatter-by-continent-meets-faceting-requirement",
+    "href": "example-analysis.html#plot-3-faceted-scatter-by-continent-meets-faceting-requirement",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "Plot 3 — Faceted scatter by continent (meets faceting requirement)",
+    "text": "Plot 3 — Faceted scatter by continent (meets faceting requirement)\n\nggplot(gm, aes(gdp_percap, life_exp, color = continent)) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~ continent) +\n  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si(\" \"))) +\n  labs(\n    title = \"Within each continent, higher income generally aligns with longer lives\",\n    subtitle = paste0(\"Faceted by continent, \", min(gm$year), \"–\", max(gm$year)),\n    x = \"GDP per capita (log10 scale; SI labels)\",\n    y = \"Life expectancy (years)\"\n  ) +\n  theme_minimal(base_size = 12) +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "example-analysis.html#summary",
+    "href": "example-analysis.html#summary",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "Summary",
+    "text": "Summary\nAcross regions from 1962 onward, life expectancy tends to rise with income, and the relationship is clearer on a log scale of GDP per capita. Faceted scatterplots show that the positive association holds within continents, though variation remains across countries at similar income levels. Ghana’s trend line illustrates gradual improvements in life expectancy over time relative to the world median, with periods of slower gains. These descriptive views support hypotheses about economic development and longevity but do not establish causality; formal modeling would need to account for confounding and time-varying factors. Still, the tidy workflow and layered plots provide a reproducible baseline for deeper analyses."
+  },
+  {
+    "objectID": "example-analysis.html#functions-used",
+    "href": "example-analysis.html#functions-used",
+    "title": "Example analysis: Life expectancy and income (Gapminder)",
+    "section": "Functions used",
+    "text": "Functions used\ndplyr: filter(), mutate(), select(), arrange(), group_by(), summarise(), n_distinct()\ntidyr: pivot_wider() (optional demo)\nggplot2: geom_point(), geom_smooth(), geom_line(), facet_wrap()"
+  }
+]

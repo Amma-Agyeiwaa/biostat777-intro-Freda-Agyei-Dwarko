@@ -1,0 +1,152 @@
+---
+title: "Example analysis: Life expectancy and income (Gapminder)"
+bibliography: references.bib
+page-layout: article
+---
+
+```{r}
+#| label: setup
+#| include: false
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(gapminder)
+  library(janitor)
+  library(forcats)
+  library(scales)
+})
+set.seed(777)
+
+
+```
+
+::: callout-notes
+**Question.** How has life expectancy changed over time across regions, and how is it associated with income (GDP per capita)?
+
+**Audience.** Peers learning tidy data workflows and clear visualization for public health context.
+:::
+
+::: column-margin
+Gapminder includes country-level life expectancy, GDP per capita, population, and continent from 1952–2007 in 5-year steps.
+:::
+
+## **Data source and data dictionary**
+
+-   Data: **gapminder** R package (compiled from Gapminder Foundation public data) \[\@gapminderpkg\]
+
+-   Gapminder site (concepts & charts): <https://www.gapminder.org/>![Attachment.tiff](file:///Attachment.tiff){alt="Attachment.tiff"}
+
+-   ggplot2 and tidy data references: \[\@wickham2016ggplot2; \@wickham2014tidydata\]
+
+::: callout-notes
+**Reproducibility.** All figures are generated from the package dataset at render time. Code is fully included.
+:::
+
+# **Minimal Wrangling**
+
+```{r}
+gm <- gapminder::gapminder |>
+  janitor::clean_names() |>                          # makes gdpPercap -> gdp_percap
+  dplyr::filter(year >= 1962) |>
+  dplyr::mutate(
+    gdp_percap_log10 = log10(gdp_percap),
+    continent = forcats::fct_relevel(continent, "Africa","Asia","Americas","Europe","Oceania")
+  ) |>
+  dplyr::select(country, continent, year, life_exp, gdp_percap, gdp_percap_log10, pop) |>
+  dplyr::arrange(continent, country, year)
+```
+
+# **Quick summary table** 
+
+```{r}
+latest_year <- max(gm$year, na.rm = TRUE)
+
+sum_tbl <- gm |>
+  dplyr::filter(year == latest_year) |>
+  dplyr::group_by(continent) |>
+  dplyr::summarise(
+    n_countries   = dplyr::n_distinct(country),
+    mean_lifeexp  = mean(life_exp, na.rm = TRUE),
+    median_gdppc  = median(gdp_percap, na.rm = TRUE),  # <-- use gdp_percap
+    .groups = "drop"
+  ) |>
+  dplyr::arrange(continent)
+
+sum_tbl
+```
+
+## **Plot 1 — GDP per capita vs life expectancy (scatter + smoother)**
+
+```{r}
+ggplot(gm, aes(x = gdp_percap, y = life_exp, color = continent)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(se = TRUE) +
+  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si(" "))) +
+  labs(
+    title = "Richer countries tend to live longer",
+    subtitle = paste0("Gapminder ", min(gm$year), "–", max(gm$year), "; x-axis on log10 scale"),
+    x = "GDP per capita (log10 scale; SI labels)",
+    y = "Life expectancy (years)"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+## **Plot 2 — Life expectancy over time for Ghana vs World median**
+
+```{r}
+# compute world median by year
+world_median <- gm |>
+  dplyr::group_by(year) |>
+  dplyr::summarise(world_median_lifeexp = median(life_exp), .groups = "drop")
+
+ghana <- gm |> dplyr::filter(country == "Ghana")
+
+ggplot() +
+  geom_line(data = world_median, aes(year, world_median_lifeexp), linewidth = 1) +  # geom_line()
+  geom_line(data = ghana, aes(year, life_exp), linewidth = 1) +
+  labs(
+    title = "Life expectancy over time: Ghana vs. world median",
+    subtitle = "Ghana has improved over decades, with fluctuations relative to the world median",
+    x = "Year",
+    y = "Life expectancy (years)",
+    caption = "Lines show Ghana and the world median."
+  ) +
+  theme_minimal(base_size = 12)
+
+```
+
+## **Plot 3 — Faceted scatter by continent (meets faceting requirement)**
+
+```{r}
+ggplot(gm, aes(gdp_percap, life_exp, color = continent)) +
+  geom_point(alpha = 0.5) +
+  facet_wrap(~ continent) +
+  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si(" "))) +
+  labs(
+    title = "Within each continent, higher income generally aligns with longer lives",
+    subtitle = paste0("Faceted by continent, ", min(gm$year), "–", max(gm$year)),
+    x = "GDP per capita (log10 scale; SI labels)",
+    y = "Life expectancy (years)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
+```
+
+# External Image
+
+![](images/images:globe.jpg){fig-cap="Photo credit: Generated educational image." fig-alt="Photo of a world map or globe"}
+
+::: callout-note
+This image illustrates the global context of the analysis ; highlighting interconnected health and economic systems across regions.
+:::
+
+## **Summary** 
+
+Across regions from 1962 onward, life expectancy tends to rise with income, and the relationship is clearer on a log scale of GDP per capita. Faceted scatterplots show that the positive association holds within continents, though variation remains across countries at similar income levels. Ghana’s trend line illustrates gradual improvements in life expectancy over time relative to the world median, with periods of slower gains. These descriptive views support hypotheses about economic development and longevity but do not establish causality; formal modeling would need to account for confounding and time-varying factors. Still, the tidy workflow and layered plots provide a reproducible baseline for deeper analyses.
+
+## **Functions used** 
+
+**dplyr**: filter(), mutate(), select(), arrange(), group_by(), summarise(), n_distinct()
+
+**tidyr**: pivot_wider() *(optional demo)*
+
+**ggplot2**: geom_point(), geom_smooth(), geom_line(), facet_wrap()

@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: docs
+ 
+website:
+  title: "Freda Agyei-Dwarko"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: example-analysis.qmd
+        text: Example analysis
+  page-footer:
+    center: "© {{< today format=\"%Y\" >}} Freda Agyei-Dwarko"
+
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-depth: 2
+    code-copy: true
+    fig-cap-location: bottom
+
+execute:
+  echo: true
+  warning: false
+  message: false
